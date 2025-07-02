@@ -1,6 +1,5 @@
 node_modules
 .cursorrules
-.cursor
 .vscode
 .env
 .env.local

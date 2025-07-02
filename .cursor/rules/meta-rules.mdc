@@ -1,0 +1,161 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Cursor Rules - Consultative Rule Management
+
+## Rule Creation and Management Guidelines
+
+### Consultation Before Action
+
+**IMPORTANT**: Only make changes to meta-rules.mdc when explicitly requested by the project owner.
+
+ALWAYS consult before making changes to rule files:
+
+- Ask before creating new rule files: "Should I create a new rule file for [specific pattern/technology], or would you prefer to add this to an existing file?"
+- Propose rule additions: "I noticed [pattern]. Should I add a rule about this to prevent [specific issue]?"
+- Suggest rule modifications: "The existing rule in [file] could be enhanced with [improvement]. Should I update it?"
+- Confirm rule complexity: If a rule seems complex or unclear, ask: "This rule might be too complex. Should I simplify it or break it into smaller parts?"
+
+## Priority Order for Rule Placement
+
+### 1. ALWAYS First: Check Existing `.cursor/rules` Files
+- Search for related patterns in current rule files
+- Look for sections where the new rule would fit naturally
+- Consider if it's an extension of an existing rule
+
+### 2. Second: Propose Adding to Existing Files
+- Ask: "Should I add this to `[existing_file.mdc]` under the `[relevant_section]` section?"
+- Suggest logical groupings with existing rules
+
+### 3. Last Resort: Create New Files
+- Only after confirming no existing file is suitable
+- ALWAYS ask permission: "No existing rule file covers this. Should I create a new `@[technology/pattern].mdc` file?"
+
+## Rule-Specific Tech Stack Documentation
+
+**ALWAYS document technology choices relevant to each specific rule file to prevent AI from using incorrect alternatives.**
+
+When creating or updating rule files, MUST add relevant tech stack information at the top if the rule domain uses specific technologies:
+
+- Testing Rule Files: Document testing frameworks (e.g., `mockk` and `kotest` for Kotlin, so AI won't suggest `JUnit`)
+- Database Rule Files: Document specific ORMs or database libraries used
+- HTTP/API Rule Files: Document preferred HTTP client libraries  
+- Build Rule Files: Document specific build tools and configurations
+- Framework Rule Files: Document specific framework versions and patterns
+
+**Example Rule-Specific Tech Stack:**
+```markdown
+---
+description: Testing patterns and practices
+---
+## Tech Stack
+- kotest
+- mockk 
+...
+```
+
+Only include tech stack sections that are directly relevant to the rule file's domain - don't document unrelated technologies.
+
+## Rule Quality Standards
+
+- Clarity First: If a rule is not immediately understandable, ask for clarification or simplification
+- Generic Over Specific: Create rules that apply broadly, not just to single examples or narrow use cases
+- Minimal Code Examples: Use code examples ONLY when absolutely necessary and text cannot describe the rule clearly
+- No Visual Clutter: NEVER use emoticons, excessive formatting, or decorative elements that reduce readability
+- No Bold Formatting: DO NOT use ** bold tags in rules - use plain text for better readability
+- Actionable Language: ALWAYS use clear "do this" / "don't do this" statements
+- Avoid Overcomplication: MUST keep rules focused on single, specific patterns
+
+## Consultation Questions to Ask
+
+- "I see this pattern in 3+ files. Should I create a rule to standardize it?"
+- "This error keeps appearing. Should I add a prevention rule?"
+- "The existing rule in [file] doesn't cover [case]. Should I extend it?"
+- "This rule might be too broad. Should I make it more specific?"
+- "Should this be a new rule file or added to [existing_file]?"
+
+## When to Suggest Rule Updates
+
+ALWAYS ask before updating when:
+- Better examples exist in the codebase
+- Additional edge cases are discovered
+- Related rules have been updated
+- Implementation details have changed
+
+## Rule Improvement Triggers
+
+- New code patterns not covered by existing rules
+- Repeated similar implementations across files
+- Common error patterns that could be prevented
+- New libraries or tools being used consistently
+- Emerging best practices in the codebase
+
+## Analysis Process
+
+1. Compare new code with existing rules
+2. Identify patterns that MUST be standardized
+3. Look for references to external documentation
+4. Check for consistent error handling patterns
+5. Monitor test patterns and coverage
+
+## Rule Updates
+
+### Add New Rules When
+- A new technology/pattern is used in 3+ files
+- Common bugs could be prevented by a rule
+- Code reviews repeatedly mention the same feedback
+- New security or performance patterns emerge
+
+### Modify Existing Rules When
+- Better examples exist in the codebase
+- Additional edge cases are discovered
+- Related rules have been updated
+- Implementation details have changed
+
+## Pattern Recognition
+
+- Look for repeated implementations across multiple files
+- Identify common error patterns that MUST be prevented
+- Notice consistent approaches that MUST be standardized
+- Consider rules that apply broadly rather than to specific technologies
+
+## Rule Quality Checks
+
+- Rules MUST be actionable and specific
+- Examples MUST come from actual code
+- References MUST be up to date
+- Patterns MUST be consistently enforced
+
+## Continuous Improvement
+
+- Monitor code review comments
+- Track common development questions
+- Update rules after major refactors
+- Add links to relevant documentation
+- Cross-reference related rules
+
+## Rule Deprecation
+
+- Mark outdated patterns as deprecated
+- Remove rules that no longer apply
+- Update references to deprecated rules
+- Document migration paths for old patterns
+
+## Documentation Updates
+
+- ALWAYS keep examples synchronized with code
+- Update references to external docs
+- Maintain links between related rules
+- Document breaking changes
+
+---
+
+> **Note**: Follow [cursor_rules.mdc](mdc:.cursor/cursor_rules.mdc) for proper rule formatting and structure.
+
+
+
+
+
+

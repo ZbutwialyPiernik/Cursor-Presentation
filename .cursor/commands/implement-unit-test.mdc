@@ -1,0 +1,65 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Unit Test Implementation - Multi-Stage Process
+
+## STAGE 1: Analysis & Proposal
+**Objective**: Analyze file and propose test cases WITHOUT implementing anything yet.
+
+### Process:
+1. **File Analysis**: 
+   - Read and analyze the specified file
+   - Identify all public methods/functions
+   - Understand method signatures, parameters, return types
+   - Identify dependencies and external calls
+
+2. **Test Case Proposal**:
+   For each method, propose:
+   - **Happy Path(s)**: All possible successful execution scenarios
+   - **Validation Cases**: Input parameter validation (null, empty, invalid values)
+   - **Edge Cases**: Boundary conditions, limits, special values
+   - **Error Handling**: Only if exceptions are actually handled in method logic
+
+3. **Proposal Format**:
+   ```
+   ## Method: methodName()
+   ### Happy Paths:
+   - Test case 1 description
+   - Test case 2 description (if multiple paths exist)
+   
+   ### Validation Cases:
+   - Test case for null parameter
+   - Test case for invalid parameter
+   
+   ### Edge Cases:
+   - Test case for boundary condition
+   
+   ### Error Handling:
+   - Test case for handled exception (only if applicable)
+   ```
+
+4. **Stage 1 End**: 
+   - Present complete proposal
+   - Ask: "Do you approve this test plan? Should I proceed to Stage 2 (implementation)?"
+   - Wait for explicit approval before moving to Stage 2
+
+## STAGE 2: Implementation
+**Objective**: Implement approved test cases ONLY after Stage 1 approval.
+
+### Process:
+1. **Test File Creation**:
+   - Create test file in appropriate location (test/domain/...)
+   - Follow naming convention: `original_file_name_test.dart`
+
+2. **Test Implementation**:
+   - use [test-rules.mdc](mdc:.cursor/rules/test-rules.mdc)
+
+## Rules:
+- **NEVER** implement tests in Stage 1 - only propose
+- **NEVER** proceed to Stage 2 without explicit user approval
+- **DON'T** test cases where repository throws exception but method doesn't handle it
+- **DO** test cases where exception is part of business logic
+- Focus on business logic, not infrastructure
+- Each stage must be completed before moving to next
